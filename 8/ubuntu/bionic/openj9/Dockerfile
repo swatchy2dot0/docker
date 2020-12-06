@@ -5,7 +5,7 @@ RUN apt-get update \
   && apt-get install -y --no-install-recommends git curl gnupg fontconfig unzip nano libxss1 libappindicator1 libindicator7 \
   && curl -s https://packagecloud.io/install/repositories/github/git-lfs/script.deb.sh | bash && apt-get install -y git-lfs && git lfs install \
   && wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb \
-  && apt-get install ./google-chrome*.deb \
+  && apt-get install -y ./google-chrome*.deb \
   && rm -rf /var/lib/apt/lists/*
 
 ARG user=jenkins
