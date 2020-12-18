@@ -2,7 +2,7 @@ FROM adoptopenjdk:11-jdk-openj9-bionic
 
 RUN apt-get update \
   && apt-get upgrade -y \
-  && apt-get install -y --no-install-recommends git curl gnupg fontconfig unzip nano libxss1 libappindicator1 libindicator7 wget \
+  && apt-get install -y --no-install-recommends git curl gnupg fontconfig unzip nano libxss1 libappindicator1 libindicator7 wget systemd \
   && curl -s https://packagecloud.io/install/repositories/github/git-lfs/script.deb.sh | bash && apt-get install -y git-lfs && git lfs install \
   && wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb \
   && apt-get install -y ./google-chrome*.deb \
