@@ -6,7 +6,9 @@ RUN apt-get update \
   && curl -s https://packagecloud.io/install/repositories/github/git-lfs/script.deb.sh | bash && apt-get install -y git-lfs && git lfs install \
   && wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb \
   && apt-get install -y ./google-chrome*.deb \
-  && rm -rf /var/lib/apt/lists/*
+  && rm -rf /var/lib/apt/lists/* \
+  && locale-gen de_DE.UTF-8 \
+  && localectl set-locale LANG=de_DE.UTF-8
 
 ARG user=jenkins
 ARG group=jenkins
