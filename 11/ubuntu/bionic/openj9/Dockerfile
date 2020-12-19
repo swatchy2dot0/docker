@@ -2,13 +2,16 @@ FROM adoptopenjdk:11-jdk-openj9-bionic
 
 RUN apt-get update \
   && apt-get upgrade -y \
-  && apt-get install -y --no-install-recommends git curl gnupg fontconfig unzip nano libxss1 libappindicator1 libindicator7 wget systemd dbus \
+  && apt-get install -y --no-install-recommends git curl gnupg fontconfig unzip nano libxss1 libappindicator1 libindicator7 wget locales \
   && curl -s https://packagecloud.io/install/repositories/github/git-lfs/script.deb.sh | bash && apt-get install -y git-lfs && git lfs install \
   && wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb \
   && apt-get install -y ./google-chrome*.deb \
   && rm -rf /var/lib/apt/lists/* \
-  && locale-gen de_DE.UTF-8 \
-  && localectl set-locale LANG=de_DE.UTF-8
+  && locale-gen de_DE.UTF-8
+  
+ENV LANG de_DE.UTF-8  
+ENV LANGUAGE de_DE:de  
+ENV LC_ALL de_DE.UTF-8
 
 ARG user=jenkins
 ARG group=jenkins
