@@ -43,6 +43,16 @@ RUN mkdir /download \
   
 VOLUME /download
 
+RUN mkdir /download2 \
+  && chmod -R 777 /download2
+  
+VOLUME /download2
+
+RUN mkdir /documents \
+  && chmod -R 777 /documents
+  
+VOLUME /documents
+
 # $REF (defaults to `/usr/share/jenkins/ref/`) contains all reference configuration we want
 # to set on a fresh new installation. Use it to bundle additional plugins
 # or config file with your custom jenkins Docker image.
