@@ -38,6 +38,11 @@ RUN mkdir -p $JENKINS_HOME \
 # can be persisted and survive image upgrades
 VOLUME $JENKINS_HOME
 
+RUN mkdir /download \
+  && chmod -R 777 /download
+  
+VOLUME /download
+
 # $REF (defaults to `/usr/share/jenkins/ref/`) contains all reference configuration we want
 # to set on a fresh new installation. Use it to bundle additional plugins
 # or config file with your custom jenkins Docker image.
